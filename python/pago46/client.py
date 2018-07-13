@@ -1,6 +1,6 @@
 import requests
 
-from utils import sign_request
+from pago46.utils import sign_request
 
 
 class Pago46(object):

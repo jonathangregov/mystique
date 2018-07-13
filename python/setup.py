@@ -8,16 +8,23 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="pago46",
     version="0.0.1",
+    # TODO: put pago46 account here
     author="David Liencura",
     author_email="dliencura@46degrees.net",
-    description="INtegraton package of pago46",
+    maintainer='David Liencura',
+    maintainer_email='dliencura@46degrees.net',
+    description="Integraton package of pago46",
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     url="",
+    keywords=['pago46', 'chile', 'payments'],
     packages=setuptools.find_packages(),
     classifiers=(
+        'Intended Audience :: Developers',
+        'Programming Language :: Python',
         "Programming Language :: Python :: 3",
-        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
     ),
+    license='GPLv3'
 )
