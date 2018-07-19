@@ -8,9 +8,8 @@ with open("README.md", "r") as fh:
 setuptools.setup(
     name="pago46",
     version="0.0.1",
-    # TODO: put pago46 account here
-    author="David Liencura",
-    author_email="dliencura@46degrees.net",
+    author="Pago 46",
+    author_email="admin@46degrees.net",
     maintainer='David Liencura',
     maintainer_email='dliencura@46degrees.net',
     description="Integraton package of pago46",
