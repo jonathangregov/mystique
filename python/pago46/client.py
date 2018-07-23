@@ -1,3 +1,5 @@
+import os
+
 import requests
 
 from pago46.utils import sign_request
@@ -10,26 +12,26 @@ class Pago46(object):
     url_merchant_complete = "/merchant/complete/"
     url_merchant_notification = "/merchant/notification"
 
-    def __init__(self, merchant_key=None, merchant_secret=None, pago46_api_host=None):
+    def __init__(self):
         """PARAMS to inicialize the client of PAGO46"""
-        self.merchant_key = self.__get_merchant_key(merchant_key)
-        self.merchant_secret = self.__get_merchant_secret(merchant_secret)
-        self.pago46_api_host = self.__get_pago46_api_host(pago46_api_host)
+        self.merchant_key = self.__get_merchant_key()
+        self.merchant_secret = self.__get_merchant_secret()
+        self.pago46_api_host = self.__get_pago46_api_host()
 
-    def __get_merchant_key(self, merchant_key):
-        if not merchant_key:
-            raise TypeError("needs a merchant_key")
-        return merchant_key
+    def __get_merchant_key(self):
+        if not "PAGO46_MERCHANT_KEY" in os.environ:
+            raise KeyError("needs a environment variable called PAGO46_MERCHANT_KEY")
+        return os.environ['PAGO46_MERCHANT_KEY']
 
-    def __get_merchant_secret(self, merchant_secret):
-        if not merchant_secret:
-            raise TypeError("needs a merchant_secret")
-        return merchant_secret
+    def __get_merchant_secret(self):
+        if not "PAGO46_MERCHANT_SECRET" in os.environ:
+            raise KeyError("needs a environment variable called PAGO46_MERCHANT_SECRET")
+        return os.environ['PAGO46_MERCHANT_SECRET']
 
-    def __get_pago46_api_host(self, pago46_api_host):
-        if not pago46_api_host:
-            raise TypeError("needs a pago46_api_host")
-        return pago46_api_host
+    def __get_pago46_api_host(self):
+        if not "PAGO46_API_HOST" in os.environ:
+            raise KeyError("needs a environment variable called PAGO46_API_HOST")
+        return os.environ['PAGO46_API_HOST']
 
     def get_all_orders(self):
         """ Get all orders from a e-merchant"""
