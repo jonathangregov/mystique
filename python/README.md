@@ -1,49 +1,42 @@
-# Pago46 Package
+# Pago46 Python Package
 
-Libreria Python para la integración con la Plataforma de pago en efectivo de Pago46.
+Python Library for the integration with the cash payment plataform of pago46.
 
-## Descripción
+## Description
 
-Esta librería esta pensada para poder entregar a los e-merchant de pago46 una forma estandar, facil y rapida,
-de integrar sus productos/servicios con pago 46 para poder ofrecer la opción de pago en efectivo a sus clientes.
+This library it was developed for give e-merchants of pago46 a standard, easy and fast integration to integrate his products/services with Pago46 to can offer the option of pay with cash to his clients
 
 
-### Configuración.
+### Configuration.
 
-Se debe tener un merchant_secret, merchant_key para poder generar llamadas a la plataforma de pago46
+to configure the client of Pago46 it's necessary to have a MERCHANT_SECRET and MERCHANT_KEY (those key are provided by Pago46)
+with those keys we can generate calls to PAGO46 API.
 
+we must configure the MERCHANT_SECRET, MERCHANT_KEY and PAGO46_API_HOST on enviroment variables.
+
+Example
 ```python
-from Pago46.client import Pago46
-
-pago46_api_host = "https://sandboxapi.pago46.com"  # for testing  or "https://api.pago46.com" for production
-merchant_secret = "<merchant_secret>" # merchat_secret otorgda por pago46
-merchant_key = "<merchant_key>" # llave secreta otorgada por pago46
-
-
+import os
+os.environ["PAGO46_MERCHANT_KEY"] = "<merchant_key>"
+os.environ["PAGO46_MERCHANT_SECRET"] = "<merchant_secret>"
+os.environ["PAGO46_API_HOST"] = "http://sandboxapi.pago46.com" # for testing  or "https://api.pago46.com" for production
 ```
-Para inicializar el cliente se deben pasar como argumento merchant_secret, merchant_secret y la url a la cual se esta apuntando
-el cual puede ser producción o servidor de pruebas para testing.
+
+with the environment variables set, we can intilialize the client 
+
 
 ```python
 from Pago46.client import Pago46
 
-pago46_api_host = "https://sandboxapi.pago46.com"  # for testing  or "https://api.pago46.com" for production
-merchant_secret = "<merchant_secret>"
-merchant_key = "<merchant_key>"
-
-client = Pago46(merchant_key, merchant_secret, pago46_api_host)
-
+client = Pago46()
 ```
-Ejemplo creación de orden.
+Example create a order
 
 ```python
 from Pago46.client import Pago46
 
-pago46_api_host = "https://sandboxapi.pago46.com"  # for testing  or "https://api.pago46.com" for production
-merchant_secret = "<merchant_secret>"
-merchant_key = "<merchant_key>"
 
-client = Pago46(merchant_key, merchant_secret, pago46_api_host)
+client = Pago46()
 
 payload = {
     "currency": "CLP", # Tipo de moneda 
@@ -55,32 +48,30 @@ payload = {
     "description": "description of product.", # (opcional): descripción opcional del producto/servicio.
 
 }
-# create a new order
 
+# create a new order
 response = client.create_order(payload)
 ```
 
-Ejemplo marcar una orden como completa.
+Example to mark a order as complete.
 
 ```
 payload = {"order_id": "0001"}
 response = client.mark_order_as_complete(payload)
 ```
-
-Ejemplo de obtener una orden por su ID
+Example get a order by ID
 
 ```
 order_id = "0001"
 response = client.get_order_by_id(order_id)
 ```
-
-Ejemplo de obtener una order por su NOTIFICATION ID
+Example get a order by Notification ID
 
 ```
 notification_id = "fe0eac28aa774b539b0e12d0227bf27f"
 response=  client.get_order_by_notification_id(notification_id)
 ```
-Ejemplo de obtener los detalles de una orden por su ORDER ID
+Example get order details by order ID
 
 
 ```
@@ -89,9 +80,9 @@ response = client.get_order_details_by_order_id(order_id)
 ```
 
 
-### Instalación
+###  Installation
 
-Instalar libreria a traves PIP 
+You can install Pago46 Package in the usual ways. The simplest way is with pip:
 
 ```
 pip install Pago46
