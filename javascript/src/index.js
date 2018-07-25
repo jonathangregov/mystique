@@ -4,11 +4,20 @@ const request = require('request')
 
 const utils = require('./utils')
 
+const pago46_merchant_key = process.env.PAGO46_MERCHANT_KEY
+if (!pago46_merchant_key) throw new Error("please set the PAGO46_MERCHANT_KEY environmental variable")
+
+const pago46_merchant_secret  = process.env.PAGO46_MERCHANT_SECRET
+if (!pago46_merchant_secret) throw new Error("please set the PAGO46_MERCHANT_SECRET environmental variable")
+
+const pago46_api_host = process.env.PAGO46_API_HOST
+if (!pago46_api_host) throw new Error("please set the PAGO46_API_HOST environmental variable")
+
 
 class Pago46 {
-	constructor(pago46_api_host){
-		this.merchant_key = process.env.MERCHANT_KEY
-		this.merchant_secret = process.env.MERCHANT_SECRET
+	constructor(){
+		this.merchant_key = pago46_merchant_key
+		this.merchant_secret = pago46_merchant_secret
 		this.pago46_api_host = pago46_api_host
 		// urls
 		this.url_merchant_orders = '/merchant/orders'

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/index.js",
-    "test": "jest"
+    "test": " PAGO46_MERCHANT_KEY=secret PAGO46_MERCHANT_SECRET=secret PAGO46_API_HOST=https://sandboxapi.pago46.com jest"
   },
   "keywords": [
     "pago46",
