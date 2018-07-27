@@ -30,6 +30,10 @@ from Pago46.client import Pago46
 
 client = Pago46()
 ```
+Example Get all orders 
+```python
+response = client.get_all_orders()
+```
 Example create a order
 
 ```python
@@ -55,26 +59,26 @@ response = client.create_order(payload)
 
 Example to mark a order as complete.
 
-```
+```python
 payload = {"order_id": "0001"}
 response = client.mark_order_as_complete(payload)
 ```
 Example get a order by ID
 
-```
+```python
 order_id = "0001"
 response = client.get_order_by_id(order_id)
 ```
 Example get a order by Notification ID
 
-```
+```python
 notification_id = "fe0eac28aa774b539b0e12d0227bf27f"
 response=  client.get_order_by_notification_id(notification_id)
 ```
 Example get order details by order ID
 
 
-```
+```python
 order_id = "121d3b2c-b985-4592-b8fc-b5c6d9ce5a13"
 response = client.get_order_details_by_order_id(order_id)
 ```
