@@ -17,6 +17,9 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="",
     keywords=['pago46', 'chile', 'payments'],
+    install_requires=[
+        'requests>=2.19.1',
+    ],
     packages=setuptools.find_packages(),
     classifiers=(
         'Intended Audience :: Developers',
