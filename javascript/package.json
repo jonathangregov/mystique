@@ -1,0 +1,25 @@
+{
+  "name": "pago46",
+  "version": "1.0.0",
+  "description": "package javascript for integration with plataform of pago46 to pay with cash.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": " PAGO46_MERCHANT_KEY=secret PAGO46_MERCHANT_SECRET=secret PAGO46_API_HOST=https://sandboxapi.pago46.com jest"
+  },
+  "keywords": [
+    "pago46",
+    "payments",
+    "chile"
+  ],
+  "author": "Pago46",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "eslint": "^5.1.0",
+    "jest": "^23.4.1"
+  },
+  "dependencies": {
+    "nock": "^9.4.2",
+    "request": "^2.87.0"
+  }
+}
