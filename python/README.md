@@ -26,7 +26,7 @@ with the environment variables set, we can intilialize the client
 
 
 ```python
-from Pago46.client import Pago46
+from pago46.client import Pago46
 
 client = Pago46()
 ```
@@ -37,7 +37,7 @@ response = client.get_all_orders()
 Example create a order
 
 ```python
-from Pago46.client import Pago46
+from pago46.client import Pago46
 
 
 client = Pago46()

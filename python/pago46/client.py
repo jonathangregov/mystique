@@ -127,3 +127,22 @@ class Pago46(object):
         url = "{}{}/{}/detail".format(self.pago46_api_host, self.url_merchant_order, order_id)
         response = requests.get(url, headers=headers)
         return response
+
+    def update_merchant_order_id(self, id, new_merchant_order_id):
+        method = "PATCH"
+        payload = {'merchant_order_id': new_merchant_order_id}
+
+        path = "{}/{}/update/".format(self.url_merchant_order, id)
+        message_hash, date = sign_request(method=method, path=path, payload=payload, merchant_key=self.merchant_key,
+                                          merchant_secret=self.merchant_secret)
+        headers = {
+            "merchant-key": self.merchant_key,
+            "message-hash": message_hash,
+            "message-date": date,
+            "Content-type": "application/x-www-form-urlencoded"
+
+        }
+
+        url = "{}{}".format(self.pago46_api_host, path)
+        response = requests.patch(url, data=payload, headers=headers)
+        return response
