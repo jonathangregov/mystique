@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pago46",
-    version="0.0.1",
+    version="0.0.2",
     author="Pago 46",
     author_email="admin@46degrees.net",
     maintainer='David Liencura',

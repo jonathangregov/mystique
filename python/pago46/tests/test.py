@@ -148,3 +148,14 @@ class Pago46TestCase(TestCase):
         response = client.get_order_details_by_order_id(order_id)
 
         self.assertEqual(response.status_code, 200)
+
+    @mock.patch('pago46.client.requests.patch')
+    def test_update_merchant_order_id(self, mock_patch):
+        client = Pago46()
+        mock_patch.return_value = mock.MagicMock(
+            headers={'content-type': 'application/json'}, status_code=200, response=json.dumps({'response': 'ok'}))
+        id = 'a6a47f03-d0d3-446b-962d-caf3a7cebb30'
+        new_merchant_order_id = 'merchant_order_edited'
+        response = client.update_merchant_order_id(id, new_merchant_order_id)
+
+        self.assertEqual(response.status_code, 200)
