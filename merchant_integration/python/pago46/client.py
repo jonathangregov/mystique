@@ -44,7 +44,7 @@ class Pago46(object):
             "message-date": date
         }
         url = "{}{}".format(self.pago46_api_host, self.url_merchant_orders)
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, verify=False)
         return response
 
     def create_order(self, payload):
@@ -67,7 +67,7 @@ class Pago46(object):
             "message-date": date
         }
         url = "{}{}".format(self.pago46_api_host, self.url_merchant_orders)
-        response = requests.post(url, data=payload, headers=headers)
+        response = requests.post(url, data=payload, headers=headers, verify=False)
         return response
 
     def mark_order_as_complete(self, payload):
@@ -80,7 +80,7 @@ class Pago46(object):
             "message-date": date
         }
         url = "{}{}".format(self.pago46_api_host, self.url_merchant_complete)
-        response = requests.post(url, data=payload, headers=headers)
+        response = requests.post(url, data=payload, headers=headers, verify=False)
         return response
 
     def get_order_by_id(self, order_id):
@@ -95,7 +95,7 @@ class Pago46(object):
         }
         url = "{}{}/{}".format(self.pago46_api_host, self.url_merchant_order, order_id)
 
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, verify=False)
         return response
 
     def get_order_by_notification_id(self, notification_id):
@@ -111,7 +111,7 @@ class Pago46(object):
 
         url = "{}{}/{}".format(self.pago46_api_host, self.url_merchant_notification, notification_id)
 
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, verify=False)
         return response
 
     def get_order_details_by_order_id(self, order_id):
@@ -125,7 +125,7 @@ class Pago46(object):
             "message-date": date
         }
         url = "{}{}/{}/detail".format(self.pago46_api_host, self.url_merchant_order, order_id)
-        response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers, verify=False)
         return response
 
     def update_merchant_order_id(self, id, new_merchant_order_id):

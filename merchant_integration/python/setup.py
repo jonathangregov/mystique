@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="pago46",
-    version="0.0.2",
+    version="0.0.3",
     author="Pago 46",
     author_email="admin@46degrees.net",
     maintainer='David Liencura',
@@ -16,7 +16,7 @@ setuptools.setup(
     long_description=LONG_DESCRIPTION,
     long_description_content_type="text/markdown",
     url="",
-    keywords=['pago46', 'chile', 'payments'],
+    keywords=['pago46', 'chile', 'payments', '46 degrees'],
     install_requires=[
         'requests>=2.19.1',
     ],
