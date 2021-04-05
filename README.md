@@ -1,2 +1,0 @@
-# mystique
-Merchant SDK
