@@ -1,2 +1,4 @@
+<p align="center"><img src="docs/img/logo.png" alt="Pago46"></p>
+
 # mystique
-Merchant SDK
+Merchant and Payment Providers Integration SDK
